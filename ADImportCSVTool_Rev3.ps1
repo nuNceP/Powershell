@@ -150,7 +150,7 @@ PS >
 function pathLevelUp ($dname) {
     $dname = domainReplace $dname
     #Returns DN= on 1 , name on 2 and basepath on 3
-    $void = $dname -match "([A-Z]{2}=)(.+?),(.*)"
+    $dname -match "([A-Z]{2}=)(.+?),(.*)" > $null
     return $matches
 }
 
@@ -269,7 +269,7 @@ function createOU ($adpath) {
     }
     try {
         #Test if OU exists
-        $void = Get-ADOrganizationalUnit $currentPath -Server $dcname
+        Get-ADOrganizationalUnit $currentPath -Server $dcname > $null
         return
     } catch {
         #Check nested structure by reiterating the function
