@@ -257,7 +257,7 @@ function createMailbox ($samname, $smtpAddresses) {
 }
 
 function createOU ($adpath) {
-    #Check if the current OU exists, if not create the whole structure!
+    #Check if the current OU exists, if not create the whole structure
     $adpath = domainReplace $adpath
     $currentPath = (pathLevelUp $adpath)[3]
     $currentName = (pathLevelUp $currentPath)[2]
