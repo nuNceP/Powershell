@@ -7,13 +7,13 @@ try {
 }
 
 #Connessione a server vCenter
-$vCenterIP = Read-Host -Prompt "Indirizzo vCenter"
+$vCenterIP = Read-Host -Prompt "vCenter hostname or IP"
 
 try {
     Connect-VIServer -Server $vCenterIP > $null
 } catch {
-    Write-Host "Errore di connessione al server"
-    break;
+    Write-Host "Error connecting to the server"
+    exit;
 }
 
 #Query snapshot VM
